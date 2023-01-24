@@ -1,6 +1,7 @@
 import * as React from 'react';
 import Document, { Html, Head, Main, NextScript } from 'next/document';
 import createEmotionCache from '@/utils/createEmotionCache';
+// eslint-disable-next-line import/no-extraneous-dependencies
 import createEmotionServer from '@emotion/server/create-instance';
 
 export default class MyDocument extends Document {
