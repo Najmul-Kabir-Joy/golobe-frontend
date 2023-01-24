@@ -1,13 +1,7 @@
-import { GlobalStyle } from '@/styles/global';
 import React from 'react';
 
-const Layout = ({ children }: { children: any }) => {
-  return (
-    <>
-      <GlobalStyle />
-      {children}
-    </>
-  );
+const Layout = ({ children }: { children: JSX.Element }) => {
+  return <>{children}</>;
 };
 
 export default Layout;

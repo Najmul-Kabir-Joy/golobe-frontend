@@ -1,11 +1,8 @@
-import Layout from "@/layout/Layout";
+import Test from '@/components/test/Test';
+import { NextPage } from 'next';
 
-const Home = () => {
-  return (
-    <Layout>
-      <p>lost & found</p>
-    </Layout>
-  );
+const index: NextPage = () => {
+  return <Test />;
 };
 
-export default Home;
+export default index;
