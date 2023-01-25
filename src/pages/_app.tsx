@@ -5,7 +5,7 @@ import { ThemeProvider } from '@mui/material';
 import createEmotionCache from '@/utils/createEmotionCache';
 import '../styles/globals.css';
 import theme from '@/styles/theme/themeOption';
-
+import Layout from '@/layout/Layout';
 interface MyAppProps extends AppProps {
   emotionCache?: EmotionCache;
 }
@@ -18,7 +18,9 @@ const MyApp: React.FunctionComponent<MyAppProps> = (props) => {
   return (
     <CacheProvider value={emotionCache}>
       <ThemeProvider theme={theme}>
-        <Component {...pageProps} />
+        <Layout>
+          <Component {...pageProps} />
+        </Layout>
       </ThemeProvider>
     </CacheProvider>
   );

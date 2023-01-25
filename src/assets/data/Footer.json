@@ -1,0 +1,28 @@
+[
+  { "id": 1, "title": "our destinations", "list": ["canada", "alaska", "france", "iceland"] },
+  {
+    "id": 2,
+    "title": "our activities",
+    "list": ["Northern Lights", "Cruising & sailing", "Multi-activities", "Kayaing"]
+  },
+  {
+    "id": 3,
+    "title": "travel blogs",
+    "list": [
+      "Bali Travel Guide",
+      "Sri Lanks Travel Guide",
+      "Peru Travel Guide",
+      "Bali Travel Guide"
+    ]
+  },
+  {
+    "id": 4,
+    "title": "about us",
+    "list": ["Our Story", "Work with us"]
+  },
+  {
+    "id": 5,
+    "title": "contact us",
+    "list": ["Our Story", "Work with us"]
+  }
+]
