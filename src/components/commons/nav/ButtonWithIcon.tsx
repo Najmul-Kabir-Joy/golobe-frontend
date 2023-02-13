@@ -13,6 +13,7 @@ const S = {
     font-size: ${({ fontSize }) => `${fontSize}px`};
     font-weight: 600;
     color: ${({ fontColor }) => COLORS[fontColor]};
+    transition: 0.5s;
   `,
 };
 
@@ -31,9 +32,10 @@ const ButtonWithIcon = ({
   primaryColor = 'BLACK',
   textSize = 14,
 }: CompProps) => {
+  const styler = { ...sxStyle, color: primaryColor === 'BLACK' ? '#112211' : '#FFFFFF' };
   return (
     <S.Wrapper>
-      <Icon baseClassName="material-icons" sx={sxStyle}>
+      <Icon baseClassName="material-icons" sx={styler}>
         {iconName}
       </Icon>
       <S.Text fontColor={primaryColor} fontSize={textSize}>

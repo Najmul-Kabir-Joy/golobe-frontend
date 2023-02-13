@@ -1,6 +1,6 @@
 import { NextPage } from 'next';
 import styled from 'styled-components';
-import BgCover from '../assets/images/home-page/home-cover.png';
+import BgCover from '../assets/images/home-page/home-cover.jpg';
 const S = {
   Container: styled.div`
     width: 100%;
@@ -11,9 +11,7 @@ const S = {
     padding-left: 30px;
     padding-right: 30px;
     padding-top: 30px;
-    border-radius: 24px;
     overflow: hidden;
-    margin-top: 96px;
   `,
   Banner: styled.div`
     position: relative;
@@ -21,21 +19,19 @@ const S = {
     height: 100%;
     background: url(${BgCover.src});
     background-size: cover;
+    border-radius: 24px;
+    background-position: center;
   `,
 };
 
-/* 
-
- <S.Container>
+const HomePage: NextPage = () => {
+  return (
+    <S.Container>
       <S.BannerWrapper>
         <S.Banner />
       </S.BannerWrapper>
     </S.Container>
-
-*/
-
-const HomePage: NextPage = () => {
-  return <p style={{ height: '200px', background: 'red' }}></p>;
+  );
 };
 
 export default HomePage;

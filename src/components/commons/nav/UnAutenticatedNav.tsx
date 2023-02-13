@@ -9,10 +9,11 @@ const S = {
     align-items: center;
     gap: 32px;
   `,
-  ButtonWithNoBg: styled.div`
+  ButtonWithNoBg: styled.div<{ bg: 'BLACK' | 'WHITE' }>`
     font-size: 14px;
     font-weight: 600;
     cursor: pointer;
+    color: ${({ bg }) => (bg === 'BLACK' ? COLORS.BLACK : COLORS.WHITE)};
   `,
   Button: styled.button<{ bg: 'BLACK' | 'WHITE' }>`
     height: 48px;
@@ -33,7 +34,9 @@ const UnAutenticatedNav = ({ bg = 'BLACK' }: { bg?: 'BLACK' | 'WHITE' }) => {
 
   return (
     <S.Wrapper>
-      <S.ButtonWithNoBg onClick={handleLogin}>Login</S.ButtonWithNoBg>
+      <S.ButtonWithNoBg bg={bg} onClick={handleLogin}>
+        Login
+      </S.ButtonWithNoBg>
       <S.Button bg={bg} onClick={handleRegistration}>
         Sign up
       </S.Button>

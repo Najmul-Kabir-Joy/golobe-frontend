@@ -6,33 +6,24 @@ import ButtonWithIcon from '../nav/ButtonWithIcon';
 import UnAutenticatedNav from '../nav/UnAutenticatedNav';
 
 const S = {
-  NavContainer: styled.nav`
-    position: sticky;
+  NavContainer: styled.nav<{ isScrolled: boolean; path: string }>`
+    position: fixed;
+    width: 100%;
+    max-width: 1440px;
     top: 0;
-  `,
-  NavigationWrapper: styled.div`
-    width: 100%;
-    height: 90px;
-    padding: 0 104px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  `,
-
-  NavigationContainer: styled.nav`
-    width: 100%;
-    height: 96px;
-    position: sticky;
-    top: 44px;
-    left: 50%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 5px 32px;
-    background-color: transparent;
     z-index: 1;
-    transform: translate(-50%, -50%);
-    background-color: yellow;
+    margin-top: ${({ isScrolled, path }) => (isScrolled || path !== '/' ? '0' : '24px')};
+  `,
+  NavigationWrapper: styled.div<{ isScrolled: boolean; path: string }>`
+    width: 100%;
+    height: ${({ isScrolled }) => (isScrolled ? '90px' : '96px')};
+    padding: ${({ isScrolled }) => (isScrolled ? '0 104px' : '0 62px')};
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: ${({ isScrolled, path }) =>
+      isScrolled || path !== '/' ? 'white' : 'transparent'};
+    transition: 0.3s;
   `,
   NavLeftItems: styled.div`
     display: flex;
@@ -44,21 +35,33 @@ const S = {
   AuthComponent: styled.div``,
 };
 
-const NavigationBar = () => {
+const NavigationBar = ({ isScrolled, path }: { isScrolled: boolean; path: string }) => {
   const isAuthenticated = false;
-
   return (
-    <S.NavContainer>
-      <S.NavigationWrapper>
+    <S.NavContainer isScrolled={isScrolled} path={path}>
+      <S.NavigationWrapper isScrolled={isScrolled} path={path}>
         <S.NavLeftItems>
-          <ButtonWithIcon iconName="flight" sxStyle={{ rotate: '90deg' }} text={'Find Flight'} />
-          <ButtonWithIcon iconName="bed" text={'Find Stays'} />
+          <ButtonWithIcon
+            iconName="flight"
+            sxStyle={{ rotate: '90deg' }}
+            text={'Find Flight'}
+            primaryColor={isScrolled ? 'BLACK' : 'WHITE'}
+          />
+          <ButtonWithIcon
+            iconName="bed"
+            text={'Find Stays'}
+            primaryColor={isScrolled ? 'BLACK' : 'WHITE'}
+          />
         </S.NavLeftItems>
         <S.NavLogoWrapper>
-          <Logo color="black" />
+          <Logo color={isScrolled ? 'black' : 'white'} />
         </S.NavLogoWrapper>
         <S.AuthComponent>
-          {isAuthenticated ? <AuthenticatedNav /> : <UnAutenticatedNav />}
+          {isAuthenticated ? (
+            <AuthenticatedNav />
+          ) : (
+            <UnAutenticatedNav bg={isScrolled ? 'BLACK' : 'WHITE'} />
+          )}
         </S.AuthComponent>
       </S.NavigationWrapper>
     </S.NavContainer>

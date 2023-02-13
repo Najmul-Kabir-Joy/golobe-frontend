@@ -1,7 +1,8 @@
 import styled from 'styled-components';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Footer from './Footer/Footer';
 import NavigationBar from '@/components/commons/layout/NavigationBar';
+import { useRouter } from 'next/router';
 
 const S = {
   LayoutContainer: styled.div`
@@ -18,11 +19,12 @@ const S = {
 };
 
 const Layout = ({ children }: { children: JSX.Element }) => {
-  /* const [isScrolled, setIsScrolled] = useState(false);
-
+  const [isScrolled, setIsScrolled] = useState(false);
+  const router = useRouter();
+  const path = router.pathname;
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 96) {
+      if (window.scrollY > 96 && path === '/') {
         setIsScrolled(true);
       } else {
         setIsScrolled(false);
@@ -34,11 +36,11 @@ const Layout = ({ children }: { children: JSX.Element }) => {
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
-  }, []); */
+  }, []);
   return (
     <S.LayoutContainer>
       <S.ContentLayout>
-        <NavigationBar />
+        <NavigationBar isScrolled={isScrolled} path={path} />
         {children}
       </S.ContentLayout>
       <Footer />
