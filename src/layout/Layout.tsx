@@ -40,8 +40,8 @@ const Layout = ({ children }: { children: JSX.Element }) => {
       <S.ContentLayout>
         <NavigationBar />
         {children}
-        <Footer />
       </S.ContentLayout>
+      <Footer />
     </S.LayoutContainer>
   );
 };
