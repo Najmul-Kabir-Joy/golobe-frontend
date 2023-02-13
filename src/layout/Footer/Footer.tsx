@@ -7,6 +7,7 @@ const S = {
   FooterContainer: styled.footer`
     height: 573px;
     position: relative;
+    margin-top: 400px;
   `,
 };
 

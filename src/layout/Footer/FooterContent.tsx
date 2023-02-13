@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import FooterLogo from '@/assets/logo/FooterLogo';
+import Logo from '@/assets/logo/Logo';
 import Fb from '@/assets/icons/Fb';
 import Twt from '@/assets/icons/Twt';
 import Yt from '@/assets/icons/Yt';
@@ -72,7 +72,7 @@ const FooterContent = () => {
     <S.FooterMainContainer>
       <S.FooterMainGrid>
         <S.FooterMainGridLogo>
-          <FooterLogo />
+          <Logo golobeColor="white" />
           <S.FooterMainGridLogoSocial>
             <S.SocialItem>
               <Fb />
