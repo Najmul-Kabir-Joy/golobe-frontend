@@ -1,4 +1,5 @@
 import Logo from '@/assets/logo/Logo';
+import { useRouter } from 'next/router';
 import React from 'react';
 import styled from 'styled-components';
 import AuthenticatedNav from '../nav/AuthenticatedNav';
@@ -26,6 +27,7 @@ const S = {
     transition: 0.3s;
   `,
   NavLeftItems: styled.div`
+    height: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -37,6 +39,8 @@ const S = {
 
 const NavigationBar = ({ isScrolled, path }: { isScrolled: boolean; path: string }) => {
   const isAuthenticated = false;
+  const router = useRouter();
+
   return (
     <S.NavContainer isScrolled={isScrolled} path={path}>
       <S.NavigationWrapper isScrolled={isScrolled} path={path}>
@@ -46,11 +50,15 @@ const NavigationBar = ({ isScrolled, path }: { isScrolled: boolean; path: string
             sxStyle={{ rotate: '90deg' }}
             text={'Find Flight'}
             primaryColor={isScrolled ? 'BLACK' : 'WHITE'}
+            link={'find-flights'}
+            selected={router.pathname === '/flights/find-flights'}
           />
           <ButtonWithIcon
             iconName="bed"
             text={'Find Stays'}
             primaryColor={isScrolled ? 'BLACK' : 'WHITE'}
+            link={'find-stays'}
+            selected={router.pathname === '/flights/find-stays'}
           />
         </S.NavLeftItems>
         <S.NavLogoWrapper>

@@ -18,9 +18,19 @@ const S = {
     width: 100%;
     height: 100%;
     background: url(${BgCover.src});
+    background-repeat: no-repeat;
     background-size: cover;
-    border-radius: 24px;
     background-position: center;
+    border-radius: 24px;
+    overflow: hidden;
+    &::before {
+      content: '';
+      position: absolute;
+      display: block;
+      width: 100%;
+      height: 100%;
+      background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.1));
+    }
   `,
 };
 

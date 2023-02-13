@@ -24,7 +24,7 @@ const Layout = ({ children }: { children: JSX.Element }) => {
   const path = router.pathname;
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 96 && path === '/') {
+      if (window.scrollY > 30 && path === '/') {
         setIsScrolled(true);
       } else {
         setIsScrolled(false);
@@ -36,7 +36,7 @@ const Layout = ({ children }: { children: JSX.Element }) => {
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
-  }, []);
+  }, [path]);
   return (
     <S.LayoutContainer>
       <S.ContentLayout>
